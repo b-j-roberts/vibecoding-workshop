@@ -36,6 +36,11 @@ export function useTransfers(intervalMs = 15_000) {
     }
   }, []);
 
+  const retry = useCallback(() => {
+    setState((prev) => ({ ...prev, error: null }));
+    fetchTransfers();
+  }, [fetchTransfers]);
+
   useEffect(() => {
     fetchTransfers();
   }, [fetchTransfers]);
@@ -57,5 +62,5 @@ export function useTransfers(intervalMs = 15_000) {
     };
   }, [isVisible, fetchTransfers, intervalMs]);
 
-  return state;
+  return { ...state, retry };
 }

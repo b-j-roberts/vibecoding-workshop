@@ -43,6 +43,11 @@ export function useTotalSupply(intervalMs = 30_000) {
     }
   }, []);
 
+  const retry = useCallback(() => {
+    setState((prev) => ({ ...prev, error: null }));
+    fetchSupply();
+  }, [fetchSupply]);
+
   useEffect(() => {
     fetchSupply();
   }, [fetchSupply]);
@@ -64,5 +69,5 @@ export function useTotalSupply(intervalMs = 30_000) {
     };
   }, [isVisible, fetchSupply, intervalMs]);
 
-  return state;
+  return { ...state, retry };
 }
