@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Transfer } from "@/lib/types";
 import { truncateAddress, formatUSDC } from "@/lib/usdc";
 
@@ -19,6 +20,23 @@ interface TransferFeedProps {
 }
 
 export default function TransferFeed({ transfers, loading, error }: TransferFeedProps) {
+  const prevHashesRef = useRef<Set<string>>(new Set());
+  const isInitialRef = useRef(true);
+
+  useEffect(() => {
+    if (!loading && transfers.length > 0) {
+      // After first render, mark initial load as done
+      if (isInitialRef.current) {
+        isInitialRef.current = false;
+      }
+      prevHashesRef.current = new Set(transfers.map((tx) => tx.transactionHash));
+    }
+  }, [transfers, loading]);
+
+  const isNewTransfer = (hash: string) => {
+    if (isInitialRef.current) return false;
+    return !prevHashesRef.current.has(hash);
+  };
 
   return (
     <div className="rounded-xl border border-border-default bg-bg-card p-6 lg:col-span-2">
@@ -43,7 +61,9 @@ export default function TransferFeed({ transfers, loading, error }: TransferFeed
           {transfers.map((tx, i) => (
             <div
               key={`${tx.transactionHash}-${i}`}
-              className="flex items-center justify-between rounded-lg border border-border-default bg-bg-primary px-4 py-3"
+              className={`flex items-center justify-between rounded-lg border border-border-default bg-bg-primary px-4 py-3 ${
+                isNewTransfer(tx.transactionHash) ? "transfer-new" : ""
+              }`}
             >
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2 text-sm">

@@ -96,9 +96,62 @@ body {
   border-radius: var(--radius-md);
 }
 
+/* Pulsing live indicator dot */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Slide + fade in for new transfer rows */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transfer-new {
+  animation: slide-in 300ms ease-out;
+}
+
+/* Accent flash on value change */
+@keyframes flash-accent {
+  0% {
+    color: var(--accent-light);
+  }
+  100% {
+    color: var(--text-primary);
+  }
+}
+
+.supply-flash {
+  animation: flash-accent 800ms ease-out;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .skeleton {
+  .skeleton,
+  .live-dot,
+  .transfer-new,
+  .supply-flash {
     animation: none;
   }
 }

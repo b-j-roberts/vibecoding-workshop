@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { getTotalSupply, formatUSDC } from "@/lib/usdc";
+import { usePageVisibility } from "./usePageVisibility";
 
 interface TotalSupplyState {
   raw: bigint | null;
   formatted: string | null;
   loading: boolean;
   error: string | null;
+  lastUpdated: number | null;
 }
 
 export function useTotalSupply(intervalMs = 30_000) {
@@ -16,12 +18,22 @@ export function useTotalSupply(intervalMs = 30_000) {
     formatted: null,
     loading: true,
     error: null,
+    lastUpdated: null,
   });
 
-  const fetch = useCallback(async () => {
+  const isVisible = usePageVisibility();
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const fetchSupply = useCallback(async () => {
     try {
       const raw = await getTotalSupply();
-      setState({ raw, formatted: formatUSDC(raw), loading: false, error: null });
+      setState({
+        raw,
+        formatted: formatUSDC(raw),
+        loading: false,
+        error: null,
+        lastUpdated: Date.now(),
+      });
     } catch (err) {
       setState((prev) => ({
         ...prev,
@@ -32,10 +44,25 @@ export function useTotalSupply(intervalMs = 30_000) {
   }, []);
 
   useEffect(() => {
-    fetch();
-    const id = setInterval(fetch, intervalMs);
-    return () => clearInterval(id);
-  }, [fetch, intervalMs]);
+    fetchSupply();
+  }, [fetchSupply]);
+
+  useEffect(() => {
+    if (isVisible) {
+      fetchSupply();
+      intervalRef.current = setInterval(fetchSupply, intervalMs);
+    } else if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isVisible, fetchSupply, intervalMs]);
 
   return state;
 }
