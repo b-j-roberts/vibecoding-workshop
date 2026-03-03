@@ -1,12 +1,29 @@
 "use client";
 
-const stats = [
-  { label: "Transfers (24h)", value: "---" },
-  { label: "Largest Transfer", value: "$---,---.--" },
-  { label: "Unique Addresses", value: "---" },
-];
+import { Transfer } from "@/lib/types";
+import { formatUSDC } from "@/lib/usdc";
 
-export default function StatsBar() {
+interface StatsBarProps {
+  transfers: Transfer[];
+  loading: boolean;
+}
+
+export default function StatsBar({ transfers, loading }: StatsBarProps) {
+  const transferCount = transfers.length;
+  const largestTransfer =
+    transfers.length > 0
+      ? transfers.reduce((max, tx) => (tx.amount > max.amount ? tx : max)).amount
+      : null;
+  const uniqueAddresses = new Set(
+    transfers.flatMap((tx) => [tx.from, tx.to])
+  ).size;
+
+  const stats = [
+    { label: "Transfers", value: loading ? "---" : transferCount.toLocaleString() },
+    { label: "Largest Transfer", value: loading ? "$---,---.--" : largestTransfer ? formatUSDC(largestTransfer) : "$0.00" },
+    { label: "Unique Addresses", value: loading ? "---" : uniqueAddresses.toLocaleString() },
+  ];
+
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
       {stats.map(({ label, value }) => (

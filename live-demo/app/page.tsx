@@ -1,9 +1,14 @@
+"use client";
+
 import TotalSupplyCard from "@/components/TotalSupplyCard";
 import StatsBar from "@/components/StatsBar";
 import TransferFeed from "@/components/TransferFeed";
 import WhaleAlert from "@/components/WhaleAlert";
+import { useTransfers } from "@/hooks/useTransfers";
 
 export default function Home() {
+  const { transfers, loading, error } = useTransfers();
+
   return (
     <div className="min-h-screen bg-bg-primary">
       <main className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6">
@@ -23,13 +28,13 @@ export default function Home() {
 
         {/* Stats Bar */}
         <section className="mb-6">
-          <StatsBar />
+          <StatsBar transfers={transfers} loading={loading} />
         </section>
 
         {/* Content Grid: Transfer Feed + Whale Alerts */}
         <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <TransferFeed />
-          <WhaleAlert />
+          <TransferFeed transfers={transfers} loading={loading} error={error} />
+          <WhaleAlert transfers={transfers} loading={loading} />
         </section>
 
         <footer className="mt-8 py-4 text-center text-xs text-text-tertiary">

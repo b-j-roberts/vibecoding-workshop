@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransfers } from "@/hooks/useTransfers";
+import { Transfer } from "@/lib/types";
 import { truncateAddress, formatUSDC } from "@/lib/usdc";
 
 function timeAgo(timestamp: number): string {
@@ -12,8 +12,13 @@ function timeAgo(timestamp: number): string {
   return `${hours}h ago`;
 }
 
-export default function TransferFeed() {
-  const { transfers, loading, error } = useTransfers();
+interface TransferFeedProps {
+  transfers: Transfer[];
+  loading: boolean;
+  error: string | null;
+}
+
+export default function TransferFeed({ transfers, loading, error }: TransferFeedProps) {
 
   return (
     <div className="rounded-xl border border-border-default bg-bg-card p-6 lg:col-span-2">

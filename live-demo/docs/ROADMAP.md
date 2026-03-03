@@ -145,7 +145,7 @@
 **Description**: Identify large transfers ("whale" activity) and compute aggregate stats for the stats bar. This adds the analytical layer that makes the dashboard feel like a real monitoring tool.
 
 **Requirements**:
-- [ ] Define whale threshold constant (default: 10,000 USDC)
+- [ ] Define whale threshold constant (default: 3,000 USDC)
 - [ ] Filter transfers to identify whales (`amount >= threshold`)
 - [ ] Wire `WhaleAlert` component to display whale transfers with distinct visual treatment
 - [ ] Compute and display stats: transfer count, largest transfer, unique addresses
