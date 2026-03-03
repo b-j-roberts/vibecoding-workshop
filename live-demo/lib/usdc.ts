@@ -20,8 +20,7 @@ const usdc = new Contract({ abi, address: USDC_ADDRESS, providerOrAccount: provi
 
 export async function getTotalSupply(): Promise<bigint> {
   const result = await usdc.call("total_supply");
-  // starknet.js v9 returns Uint256 as a single bigint
-  return BigInt(result.toString());
+  return (result as { totalSupply: bigint }).totalSupply;
 }
 
 export function formatUSDC(raw: bigint): string {
