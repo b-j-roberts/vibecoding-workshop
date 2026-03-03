@@ -31,7 +31,7 @@ export default function StatsBar({ transfers, loading }: StatsBarProps) {
       {stats.map(({ label, value, skeleton }) => (
         <div
           key={label}
-          className="rounded-xl border border-border-default bg-bg-card p-6"
+          className="rounded-xl border border-border-default bg-bg-card p-4 sm:p-6"
         >
           <p className="mb-2 text-xs font-medium text-text-secondary">
             {label}

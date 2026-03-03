@@ -42,7 +42,7 @@ export default function TransferFeed({ transfers, loading, error, onRetry }: Tra
   const hasStaleData = error && transfers.length > 0;
 
   return (
-    <div className="rounded-xl border border-border-default bg-bg-card p-6 lg:col-span-2">
+    <div className="rounded-xl border border-border-default bg-bg-card p-4 sm:p-6 md:col-span-2">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-text-primary">
           Recent Transfers
@@ -85,9 +85,9 @@ export default function TransferFeed({ transfers, loading, error, onRetry }: Tra
           {onRetry && (
             <button
               onClick={onRetry}
-              className="flex items-center gap-1.5 rounded-md border border-error-muted bg-error-muted/50 px-3 py-1.5 text-xs font-medium text-error transition-colors hover:bg-error-muted"
+              className="flex min-h-[44px] items-center gap-1.5 rounded-md border border-error-muted bg-error-muted/50 px-4 py-2 text-sm font-medium text-error transition-colors hover:bg-error-muted"
             >
-              <RefreshCw className="h-3 w-3" />
+              <RefreshCw className="h-3.5 w-3.5" />
               Retry
             </button>
           )}
@@ -101,17 +101,17 @@ export default function TransferFeed({ transfers, loading, error, onRetry }: Tra
           {transfers.map((tx, i) => (
             <div
               key={`${tx.transactionHash}-${i}`}
-              className={`flex items-center justify-between rounded-lg border border-border-default bg-bg-primary px-4 py-3 ${
+              className={`flex items-center justify-between rounded-lg border border-border-default bg-bg-primary px-3 py-3 sm:px-4 ${
                 isNewTransfer(tx.transactionHash) ? "transfer-new" : ""
               }`}
             >
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2 text-sm">
-                  <span className="font-mono text-text-secondary">
+                <div className="flex flex-wrap items-center gap-1 text-sm sm:gap-2">
+                  <span className="truncate font-mono text-text-secondary">
                     {truncateAddress(tx.from)}
                   </span>
                   <span className="text-text-tertiary">&rarr;</span>
-                  <span className="font-mono text-text-secondary">
+                  <span className="truncate font-mono text-text-secondary">
                     {truncateAddress(tx.to)}
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export default function TransferFeed({ transfers, loading, error, onRetry }: Tra
                   Block {tx.blockNumber.toLocaleString()} &middot; {timeAgo(tx.timestamp)}
                 </p>
               </div>
-              <span className="ml-4 whitespace-nowrap font-mono text-sm font-medium text-accent">
+              <span className="ml-3 shrink-0 whitespace-nowrap font-mono text-sm font-medium text-accent sm:ml-4">
                 {formatUSDC(tx.amount)}
               </span>
             </div>

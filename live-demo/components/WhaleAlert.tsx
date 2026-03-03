@@ -17,7 +17,7 @@ export default function WhaleAlert({ transfers, loading, error }: WhaleAlertProp
   const hasStaleData = error && transfers.length > 0;
 
   return (
-    <div className="rounded-xl border border-border-default bg-bg-card p-6">
+    <div className="rounded-xl border border-border-default bg-bg-card p-4 sm:p-6">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-semibold text-text-primary">
           Whale Alerts
@@ -60,10 +60,10 @@ export default function WhaleAlert({ transfers, loading, error }: WhaleAlertProp
                   {formatUSDC(tx.amount)}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-text-secondary">
-                <span className="font-mono">{truncateAddress(tx.from)}</span>
+              <div className="flex flex-wrap items-center gap-1 text-xs text-text-secondary sm:gap-2">
+                <span className="truncate font-mono">{truncateAddress(tx.from)}</span>
                 <span className="text-text-tertiary">&rarr;</span>
-                <span className="font-mono">{truncateAddress(tx.to)}</span>
+                <span className="truncate font-mono">{truncateAddress(tx.to)}</span>
               </div>
             </div>
           ))}

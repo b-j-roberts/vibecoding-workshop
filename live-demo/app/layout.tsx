@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Starknet USDC Dashboard",
   description:
     "Real-time USDC metrics on Starknet — supply, transfers, and whale alerts",
+  openGraph: {
+    title: "Starknet USDC Dashboard",
+    description: "Real-time USDC supply, transfers, and whale alerts on Starknet",
+    siteName: "Starknet USDC Dashboard",
+  },
 };
 
 export default function RootLayout({

@@ -21,7 +21,7 @@ export default function TotalSupplyCard() {
   const hasStaleData = error && formatted;
 
   return (
-    <div className="rounded-2xl border border-accent-muted bg-gradient-to-br from-bg-card to-[#1a1b2e] p-8">
+    <div className="rounded-2xl border border-accent-muted bg-gradient-to-br from-bg-card to-[#1a1b2e] p-5 sm:p-8">
       <p className="mb-2 text-sm font-medium text-text-secondary">
         Total USDC Supply
       </p>
@@ -29,10 +29,10 @@ export default function TotalSupplyCard() {
         <div className="skeleton h-10 w-64 rounded-lg" />
       ) : error && !formatted ? (
         <div className="flex items-center gap-3">
-          <p className="font-mono text-4xl font-bold text-error">--</p>
+          <p className="font-mono text-2xl font-bold text-error sm:text-4xl">--</p>
           <button
             onClick={retry}
-            className="flex items-center gap-1.5 rounded-md border border-error-muted bg-error-muted/50 px-3 py-1.5 text-xs font-medium text-error transition-colors hover:bg-error-muted"
+            className="flex min-h-[44px] items-center gap-1.5 rounded-md border border-error-muted bg-error-muted/50 px-3 py-2 text-sm font-medium text-error transition-colors hover:bg-error-muted"
           >
             <RefreshCw className="h-3 w-3" />
             Retry
@@ -40,7 +40,7 @@ export default function TotalSupplyCard() {
         </div>
       ) : (
         <>
-          <p className={`font-mono text-4xl font-bold text-text-primary ${flashing ? "supply-flash" : ""} ${hasStaleData ? "opacity-60" : ""}`}>
+          <p className={`font-mono text-2xl font-bold text-text-primary sm:text-4xl ${flashing ? "supply-flash" : ""} ${hasStaleData ? "opacity-60" : ""}`}>
             {formatted}
           </p>
           {hasStaleData && (

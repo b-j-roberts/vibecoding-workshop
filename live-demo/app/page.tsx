@@ -35,8 +35,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-bg-primary">
       <main className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6">
-        <header className="mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <header className="mb-8">
+          <div className="flex flex-wrap items-center gap-3">
             <h1 className="text-2xl font-bold text-text-primary sm:text-4xl">
               Starknet USDC Dashboard
             </h1>
@@ -50,12 +50,12 @@ export default function Home() {
                 {error ? "Error" : "Live"}
               </span>
             </div>
+            <span className="ml-auto text-xs font-medium text-text-tertiary">
+              {secondsAgo !== null
+                ? `Last updated: ${secondsAgo}s ago`
+                : "Last updated: --"}
+            </span>
           </div>
-          <span className="text-xs font-medium text-text-tertiary">
-            {secondsAgo !== null
-              ? `Last updated: ${secondsAgo}s ago`
-              : "Last updated: --"}
-          </span>
         </header>
 
         {/* Global error banner for stale data */}
@@ -77,7 +77,7 @@ export default function Home() {
         </section>
 
         {/* Content Grid: Transfer Feed + Whale Alerts */}
-        <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <TransferFeed transfers={transfers} loading={loading} error={error} onRetry={retry} />
           <WhaleAlert transfers={transfers} loading={loading} error={error} />
         </section>
