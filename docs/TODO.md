@@ -1,0 +1,375 @@
+# Workshop Preparation TODO
+
+Preparation tasks for the PM Vibe Coding Workshop (March 23-25, 2026).
+
+---
+
+## Table of Contents
+
+- [Phase 1: Planning & Coordination](#phase-1-planning--coordination)
+- [Phase 2: Demo Preparation](#phase-2-demo-preparation)
+- [Phase 3: Starter Templates](#phase-3-starter-templates)
+- [Phase 4: Workshop Materials](#phase-4-workshop-materials)
+- [Phase 5: Logistics & Dry Run](#phase-5-logistics--dry-run)
+
+---
+
+## Phase 1: Planning & Coordination
+
+Tasks to align with stakeholders and get organizational pieces in place.
+
+### 1.1 Sync with Natan
+
+**Description**: Schedule and complete a sync with Natan to review the full workshop plan, identify gaps, and align on expectations. Natan is OOO until March 9.
+
+**Requirements**:
+- [ ] Schedule sync for week of March 9 (Natan back from OOO)
+- [ ] Review the full Google Doc together
+- [ ] Identify gaps in the plan
+- [ ] Confirm final participant list
+- [ ] Align on success metrics and how they'll be measured
+
+**Notes**:
+- Natan asked Brandon to review the doc and add detailed notes before the sync
+- Consider bringing additional tutor candidates into the sync
+
+---
+
+### 1.2 Review & Annotate Workshop Doc
+
+**Description**: Thoroughly review Natan's Google Doc and leave detailed notes, suggestions, and corrections.
+
+**Requirements**:
+- [ ] Read through entire doc in detail
+- [ ] Add notes on anything that needs clarification
+- [ ] Suggest adjustments to the schedule based on the demo taking 45min-1hr at the start of Day 1
+- [ ] Flag any unrealistic time estimates
+- [ ] Note where Claude Code-specific guidance should replace generic AI references
+
+**Notes**:
+- Natan specifically asked for detailed notes since participants have different backgrounds and remote can create a mess
+- The doc currently references ChatGPT and Cursor alongside Claude — standardize recommendation around Claude Code
+
+---
+
+### 1.3 Coordinate Technical PM Tutors
+
+**Description**: Recruit and prepare 3 technical PMs to assist with non-AI troubleshooting (repo, Git, APIs, environment issues) during the workshop.
+
+**Requirements**:
+- [ ] Confirm 3 tutors from the volunteers (Boaz, Ohad, Oded, Balouka, Maya reacted in Slack)
+- [ ] Schedule a prep call with tutors before the workshop
+- [ ] Create a tutor brief doc covering: their role, common issues to expect, escalation path
+- [ ] Share troubleshooting playbook with tutors in advance
+- [ ] Decide on tutor assignment strategy (per-participant, round-robin, or queue-based)
+
+**Notes**:
+- Maya is in NY March 22-28 so she cannot be a tutor for this set of dates
+- Tutors handle non-AI issues only — Brandon handles AI/prompting questions
+- Consider a shared Slack thread or queue for help requests during build blocks
+
+---
+
+### 1.4 Confirm Participant Prerequisites
+
+**Description**: Ensure all participants complete the mandatory checklist before Day 1 to avoid wasting workshop time on setup.
+
+**Requirements**:
+- [ ] Post prerequisites checklist to `#pm-vibecoding-workshop` with clear deadlines
+- [ ] Include Claude Code installation instructions (not just Claude web — participants need the CLI)
+- [ ] Set a deadline for prerequisite completion (at least 2 days before Day 1)
+- [ ] Plan a "setup office hours" slot for anyone who gets stuck on prerequisites
+- [ ] Verify participants have submitted their 1-2 candidate MVP ideas
+
+**Notes**:
+- The Google Doc lists prerequisites but they need to be adapted for Claude Code as the primary tool
+- Consider a simple form or thread where participants confirm they've completed setup
+- Node.js LTS and Python 3.11+ are both valid runtimes — participants pick one
+
+---
+
+## Phase 2: Demo Preparation
+
+The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
+
+### 2.1 Choose Demo Project
+
+**Description**: Pick a project to vibecode live during the Day 1 kickoff. It should be impressive enough to inspire, simple enough to follow, and representative of what participants will build.
+
+**Requirements**:
+- [ ] Project must be completable end-to-end in the demo timeframe
+- [ ] Should showcase the "4-loop method" (Specify → Generate → Run → Debug)
+- [ ] Should demonstrate at least one external integration (API, webhook, etc.)
+- [ ] Must be deployable (Vercel or similar) by end of demo
+- [ ] Should be relevant to PM work (dashboard, automation, internal tool)
+
+**Notes**:
+- Good candidates: a simple dashboard that pulls data from an API, an automation that monitors something and sends Slack alerts, a lightweight internal tool
+- The demo sets the tone — it should show that vibecoding is fast, structured, and produces real results
+- Keep it simple enough that non-engineers can follow the logic
+- For Specify: I want to use notes from my project-init skill
+- For Generate: I want to demo going thru roadmap from project-init skill output
+- For Run: I want to run progressively as we generate and see results using test output from generate commands using a standard prompt like:
+```
+Hey, I am working to implement features for the Pi5 Home Server app from the roadmap.
+
+After completing your implementation of this task. Please provide a concise but informative step-by-step plan I can follow to test this new feature entirely.
+
+Let's continue with implementing:
+
+# Phase 2: Nice to Have
+Improvements that enhance reliability and usability.
+
+### 2.3 Basic Monitoring
+
+**Description**: Add basic uptime monitoring for critical services.
+
+**Requirements**:
+- [ ] Set up Healthchecks.io or UptimeRobot account (free tier)
+- [ ] Create health check endpoints for each service
+- [ ] Configure external pings to health endpoints
+- [ ] Set up notification channel (email, webhook to n8n)
+- [ ] Create n8n workflow for internal health checks
+- [ ] Document monitoring setup
+
+**Implementation Notes**:
+- External monitoring catches tunnel/network issues
+- n8n workflow can check internal service health
+- Start simple, expand if needed
+
+If anything is unclear from the requirements/task after researching, please ask me any follow-up questions using the AskUserQuestionTool. Such as technical implementation, UI/UX, concerns/tradeoffs, etc.
+```
+( for example )
+- For Debug: I will artificially include ( or if we find an error in demo setup ) an error, and show how to fix (providing outputs, providing what I see, ... )
+
+
+---
+
+### 2.2 Build the Demo Project
+
+**Description**: Actually build the demo project using Claude Code, saving each step as a git commit/branch so you can jump between checkpoints during the live presentation.
+
+**Requirements**:
+- [ ] Build the project from scratch using Claude Code
+- [ ] Create git commits at each meaningful checkpoint (after each prompt/generation cycle)
+- [ ] Document the exact prompts used at each step
+- [ ] Tag or branch each checkpoint for easy navigation during the demo
+- [ ] Verify the final result deploys cleanly
+
+**Notes**:
+- The pre-run approach means you show the prompt, explain what it does, then `git checkout` to the result
+- This avoids dead air while waiting for Claude Code to generate
+- Practice the flow to ensure transitions are smooth
+
+---
+
+### 2.3 Write Demo Script
+
+**Description**: Create a script/outline for the demo presentation that covers the narrative, each checkpoint, and talking points.
+
+**Requirements**:
+- [ ] Write intro section: what is vibecoding, why it matters for PMs
+- [ ] Outline each checkpoint with: the prompt shown, what it does, key takeaway
+- [ ] Include "what to use AI for vs. not" guidance
+- [ ] Include the "when to ask for help" framework
+- [ ] Include common pitfalls and how to avoid them
+- [ ] Time each section to fit within 45min-1hr total
+
+**Notes**:
+- The demo replaces the "Kickoff: Vibe Coding with Discipline (25 min)" section from the original doc
+- Should cover: workshop outcome, constraints, 4-loop method, what "good" looks like, the full build flow
+- End with the deployed result to land the "you can do this too" message
+
+---
+
+## Phase 3: Starter Templates
+
+Three minimal, runnable templates participants choose from on Day 1.
+
+### 3.1 Next.js Web App Template
+
+**Description**: A minimal Next.js starter template for participants building web apps (dashboards, internal tools, simple UIs).
+
+**Requirements**:
+- [ ] Next.js with App Router
+- [ ] Simple, clean UI (Tailwind CSS or similar)
+- [ ] One example page/component showing the pattern
+- [ ] README with: what it is, how to run, how to deploy to Vercel
+- [ ] `npm run dev` works out of the box
+- [ ] Includes a CLAUDE.md with project-specific context for Claude Code
+
+**Notes**:
+- Keep dependencies minimal — participants shouldn't need to understand a complex setup
+- Include a `.env.example` if any env vars are needed
+- The template is a starting point, not a finished app — just enough structure to build on
+
+---
+
+### 3.2 Python Automation Template
+
+**Description**: A minimal Python CLI automation template for participants building scripts, data pipelines, or scheduled automations.
+
+**Requirements**:
+- [ ] Python 3.11+ with a simple CLI entry point
+- [ ] Config file support (YAML or .env)
+- [ ] Basic logging setup
+- [ ] One example automation (e.g., fetch data from an API + format output)
+- [ ] README with: what it is, how to run, how to schedule (cron / GitHub Actions)
+- [ ] `python main.py` works out of the box
+- [ ] Includes a CLAUDE.md with project-specific context for Claude Code
+
+**Notes**:
+- Use minimal dependencies (requests, python-dotenv at most)
+- Include a simple GitHub Actions workflow file for scheduling
+- Avoid complex virtual env setups — keep it as simple as possible
+
+---
+
+### 3.3 Slack Bot / Webhook Template
+
+**Description**: A minimal Slack bot or webhook automation template for participants building integrations and notification systems.
+
+**Requirements**:
+- [ ] Simple webhook receiver or Slack bot setup
+- [ ] One example handler (e.g., receive event → process → respond)
+- [ ] README with: what it is, how to set up Slack app, how to run, how to deploy
+- [ ] Works locally with a test command
+- [ ] Includes a CLAUDE.md with project-specific context for Claude Code
+
+**Notes**:
+- Consider using a simple Express or FastAPI server as the webhook receiver
+- Include instructions for creating a Slack app and getting tokens
+- This is the most "integration-heavy" template — keep the code simple, focus on clear setup docs
+
+---
+
+## Phase 4: Workshop Materials
+
+Supporting documents, prompts, and guides for the workshop.
+
+### 4.1 Standard Prompts Guide
+
+**Description**: A guide with standard prompts participants can use with Claude Code to stay productive and avoid prompt thrash.
+
+**Requirements**:
+- [ ] Prompts for each phase: scoping, scaffolding, implementing, debugging, deploying
+- [ ] "Do this, not that" examples showing good vs. bad prompting
+- [ ] Claude Code-specific tips (how to use CLAUDE.md, how to structure requests, etc.)
+- [ ] Prompts for the 4-loop method at each step
+- [ ] Quick reference card format (easy to scan during build blocks)
+
+**Notes**:
+- The Google Doc has a "Standard Prompts" section but it's empty (just `"."`)
+- This is one of the highest-value deliverables — good prompts prevent the #1 failure mode (thrashing)
+- Include prompts for common stuck points: "my app won't start", "the API returns an error", "I need to change my approach"
+
+---
+
+### 4.2 Troubleshooting Playbook
+
+**Description**: A guide covering common errors and fixes that participants and tutors can reference during build blocks.
+
+**Requirements**:
+- [ ] Common environment issues (Node/Python version, missing deps, port conflicts)
+- [ ] Common Git issues (merge conflicts, push rejected, wrong branch)
+- [ ] Common deployment issues (Vercel build fails, env vars missing, CORS errors)
+- [ ] Common API integration issues (auth failures, rate limits, wrong endpoints)
+- [ ] Each issue has: symptom, cause, fix (copy-pasteable commands where possible)
+- [ ] Organized by category for quick scanning
+
+**Notes**:
+- Share with tutors before the workshop so they can familiarize themselves
+- Keep it practical — real error messages, real fixes
+- Include a "when to escalate to Brandon" section
+
+---
+
+### 4.3 MVP Scoping Template
+
+**Description**: A one-page template participants fill out during the Day 1 Scoping Clinic to define their MVP.
+
+**Requirements**:
+- [ ] Problem statement (1 paragraph)
+- [ ] Non-goals (at least 3)
+- [ ] Inputs / Outputs
+- [ ] Happy path flow
+- [ ] Acceptance criteria (3-5 bullets)
+- [ ] Template format (markdown file or shared doc)
+
+**Notes**:
+- This is used during the "MVP Scoping Clinic (35 min)" on Day 1
+- Brandon should review and push back on scope during this session
+- Consider including 2-3 filled-out examples to show what "good" looks like
+
+---
+
+### 4.4 Tutor Brief
+
+**Description**: A brief document for the 3 technical PM tutors explaining their role, what to expect, and how to help effectively.
+
+**Requirements**:
+- [ ] Role definition: non-AI troubleshooting (repo, Git, APIs, environment, deployment)
+- [ ] Common issues they'll encounter (reference the troubleshooting playbook)
+- [ ] Escalation path: when to handle themselves vs. escalate to Brandon
+- [ ] Communication protocol during the workshop (Slack thread, queue, etc.)
+- [ ] Schedule overview so they know when build blocks happen
+
+**Notes**:
+- Send to tutors at least a few days before the workshop
+- Include the troubleshooting playbook as a companion doc
+- Keep it short — tutors are PMs too, they don't need a manual
+
+---
+
+## Phase 5: Logistics & Dry Run
+
+Final preparations and rehearsal before March 23.
+
+### 5.1 Set Up Workshop Repo/Org
+
+**Description**: Create the GitHub organization or repo structure where participants will create their projects.
+
+**Requirements**:
+- [ ] Decide on repo strategy: one org with per-participant repos, or participants use personal repos
+- [ ] Set up any shared repos (templates, workshop materials)
+- [ ] Ensure all participants have GitHub access
+- [ ] Test that templates can be forked/cloned easily
+
+**Notes**:
+- Simpler is better — personal repos with template cloning is probably easiest
+- Make sure templates are public or participants have access
+
+---
+
+### 5.2 Dry Run the Demo
+
+**Description**: Do a full rehearsal of the Day 1 demo presentation, timing each section and practicing transitions between checkpoints.
+
+**Requirements**:
+- [ ] Run through the full demo end-to-end
+- [ ] Time each section
+- [ ] Practice checkpoint transitions (switching between pre-run git states)
+- [ ] Test screen sharing setup (terminal font size, visibility)
+- [ ] Identify and fix any rough spots
+
+**Notes**:
+- Consider doing the dry run with one of the tutors as an audience
+- Make sure terminal text is readable on screen share (large font, good contrast)
+- Have a backup plan if something breaks during the live portions
+
+---
+
+### 5.3 Pre-Workshop Communication
+
+**Description**: Send final communications to participants with everything they need to show up ready on Day 1.
+
+**Requirements**:
+- [ ] Send "1 week before" reminder with prerequisites checklist and deadline
+- [ ] Send "day before" reminder with: Zoom/Meet link, schedule, what to have ready
+- [ ] Pin key resources in `#pm-vibecoding-workshop`
+- [ ] Confirm all tutors are available for the confirmed dates
+- [ ] Share the prompts guide and troubleshooting playbook in the channel
+
+**Notes**:
+- The more setup participants do before Day 1, the more building time they get
+- Consider a short video or screenshot walkthrough for Claude Code setup (it's less familiar than ChatGPT for most PMs)
