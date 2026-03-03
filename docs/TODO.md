@@ -97,50 +97,25 @@ The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
 **Description**: Pick a project to vibecode live during the Day 1 kickoff. It should be impressive enough to inspire, simple enough to follow, and representative of what participants will build.
 
 **Requirements**:
-- [ ] Project must be completable end-to-end in the demo timeframe
-- [ ] Should showcase the "4-loop method" (Specify → Generate → Run → Debug)
-- [ ] Should demonstrate at least one external integration (API, webhook, etc.)
-- [ ] Must be deployable (Vercel or similar) by end of demo
-- [ ] Should be relevant to PM work (dashboard, automation, internal tool)
+- [x] Project must be completable end-to-end in the demo timeframe
+- [x] Should showcase the "4-loop method" (Specify → Generate → Run → Debug)
+- [x] Should demonstrate at least one external integration (API, webhook, etc.)
+- [x] Must be deployable (Vercel or similar) by end of demo
+- [x] Should be relevant to PM work (dashboard, automation, internal tool)
+
+**Chosen Project**: Starknet USDC Dashboard — see `demo/README.md` for full details.
 
 **Notes**:
-- Good candidates: a simple dashboard that pulls data from an API, an automation that monitors something and sends Slack alerts, a lightweight internal tool
+- **Project**: Real-time dashboard tracking USDC stablecoin activity on Starknet (total supply, transfers, whale alerts)
+- **Stack**: Next.js + Tailwind + Starknet JSON-RPC (public node, no API key needed)
+- **Deploy**: Vercel
+- **External Integration**: Starknet public RPC — `starknet_call` for total supply, `starknet_getEvents` for transfers
 - The demo sets the tone — it should show that vibecoding is fast, structured, and produces real results
-- Keep it simple enough that non-engineers can follow the logic
-- For Specify: I want to use notes from my project-init skill
-- For Generate: I want to demo going thru roadmap from project-init skill output
-- For Run: I want to run progressively as we generate and see results using test output from generate commands using a standard prompt like:
-```
-Hey, I am working to implement features for the Pi5 Home Server app from the roadmap.
-
-After completing your implementation of this task. Please provide a concise but informative step-by-step plan I can follow to test this new feature entirely.
-
-Let's continue with implementing:
-
-# Phase 2: Nice to Have
-Improvements that enhance reliability and usability.
-
-### 2.3 Basic Monitoring
-
-**Description**: Add basic uptime monitoring for critical services.
-
-**Requirements**:
-- [ ] Set up Healthchecks.io or UptimeRobot account (free tier)
-- [ ] Create health check endpoints for each service
-- [ ] Configure external pings to health endpoints
-- [ ] Set up notification channel (email, webhook to n8n)
-- [ ] Create n8n workflow for internal health checks
-- [ ] Document monitoring setup
-
-**Implementation Notes**:
-- External monitoring catches tunnel/network issues
-- n8n workflow can check internal service health
-- Start simple, expand if needed
-
-If anything is unclear from the requirements/task after researching, please ask me any follow-up questions using the AskUserQuestionTool. Such as technical implementation, UI/UX, concerns/tradeoffs, etc.
-```
-( for example )
-- For Debug: I will artificially include ( or if we find an error in demo setup ) an error, and show how to fix (providing outputs, providing what I see, ... )
+- For Specify: Use project-init skill approach to generate spec from idea
+- For Generate: Build piece by piece — scaffold → data layer → UI → events → polish
+- For Run: Run `npm run dev` after each generation step, show live Starknet data in browser
+- For Debug: Introduce artificial bug (hex parsing error or CORS issue), demo fixing with Claude Code
+- Pre-run strategy: git tags at each checkpoint (`demo/start`, `demo/scaffold`, `demo/data`, etc.) for smooth transitions
 
 
 ---
