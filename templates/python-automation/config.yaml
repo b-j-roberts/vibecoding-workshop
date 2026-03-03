@@ -1,0 +1,6 @@
+# Automation configuration
+# Edit these values for your project
+
+github_username: "octocat"
+repo_count: 5
+output_file: "report.txt"
