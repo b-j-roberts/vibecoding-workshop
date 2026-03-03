@@ -166,17 +166,18 @@ Three minimal, runnable templates participants choose from on Day 1.
 **Description**: A minimal Next.js starter template for participants building web apps (dashboards, internal tools, simple UIs).
 
 **Requirements**:
-- [ ] Next.js with App Router
-- [ ] Simple, clean UI (Tailwind CSS or similar)
-- [ ] One example page/component showing the pattern
-- [ ] README with: what it is, how to run, how to deploy to Vercel
-- [ ] `npm run dev` works out of the box
-- [ ] Includes a CLAUDE.md with project-specific context for Claude Code
+- [x] Next.js with App Router
+- [x] Simple, clean UI (Tailwind CSS or similar)
+- [x] One example page/component showing the pattern
+- [x] README with: what it is, how to run, how to deploy to Vercel
+- [x] `npm run dev` works out of the box
+- [x] Includes a CLAUDE.md with project-specific context for Claude Code
 
 **Notes**:
 - Keep dependencies minimal — participants shouldn't need to understand a complex setup
 - Include a `.env.example` if any env vars are needed
 - The template is a starting point, not a finished app — just enough structure to build on
+- **Location**: `templates/nextjs-app/`
 
 ---
 
