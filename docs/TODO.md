@@ -143,12 +143,12 @@ The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
 **Description**: Create a script/outline for the demo presentation that covers the narrative, each checkpoint, and talking points.
 
 **Requirements**:
-- [ ] Write intro section: what is vibecoding, why it matters for PMs
-- [ ] Outline each checkpoint with: the prompt shown, what it does, key takeaway
-- [ ] Include "what to use AI for vs. not" guidance
-- [ ] Include the "when to ask for help" framework
-- [ ] Include common pitfalls and how to avoid them
-- [ ] Time each section to fit within 45min-1hr total
+- [x] Write intro section: what is vibecoding, why it matters for PMs
+- [x] Outline each checkpoint with: the prompt shown, what it does, key takeaway
+- [x] Include "what to use AI for vs. not" guidance
+- [x] Include the "when to ask for help" framework
+- [x] Include common pitfalls and how to avoid them
+- [x] Time each section to fit within 45min-1hr total
 
 **Notes**:
 - The demo replaces the "Kickoff: Vibe Coding with Discipline (25 min)" section from the original doc
