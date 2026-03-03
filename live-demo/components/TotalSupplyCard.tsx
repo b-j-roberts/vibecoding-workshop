@@ -1,14 +1,24 @@
 "use client";
 
+import { useTotalSupply } from "@/hooks/useTotalSupply";
+
 export default function TotalSupplyCard() {
+  const { formatted, loading, error } = useTotalSupply();
+
   return (
     <div className="rounded-2xl border border-accent-muted bg-gradient-to-br from-bg-card to-[#1a1b2e] p-8">
       <p className="mb-2 text-sm font-medium text-text-secondary">
         Total USDC Supply
       </p>
-      <p className="font-mono text-4xl font-bold text-text-primary">
-        $---,---,---.--
-      </p>
+      {loading ? (
+        <div className="skeleton h-10 w-64 rounded-lg" />
+      ) : error ? (
+        <p className="font-mono text-4xl font-bold text-error">Error</p>
+      ) : (
+        <p className="font-mono text-4xl font-bold text-text-primary">
+          {formatted}
+        </p>
+      )}
     </div>
   );
 }
