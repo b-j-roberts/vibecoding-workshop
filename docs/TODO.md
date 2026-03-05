@@ -77,6 +77,7 @@ Tasks to align with stakeholders and get organizational pieces in place.
 **Requirements**:
 - [ ] Post prerequisites checklist to `#pm-vibecoding-workshop` with clear deadlines
 - [ ] Include Claude Code installation instructions (not just Claude web — participants need the CLI)
+- [ ] Include instructions for installing workshop skills (`project-init` and `checkpoint`) — participants run `npx skills add` from their project directory on Day 1
 - [ ] Set a deadline for prerequisite completion (at least 2 days before Day 1)
 - [ ] Plan a "setup office hours" slot for anyone who gets stuck on prerequisites
 - [ ] Verify participants have submitted their 1-2 candidate MVP ideas
@@ -85,6 +86,7 @@ Tasks to align with stakeholders and get organizational pieces in place.
 - The Google Doc lists prerequisites but they need to be adapted for Claude Code as the primary tool
 - Consider a simple form or thread where participants confirm they've completed setup
 - Node.js LTS and Python 3.11+ are both valid runtimes — participants pick one
+- Workshop skills are installed per-project, not globally — instruct participants to install them after cloning their template on Day 1
 
 ---
 
@@ -111,8 +113,9 @@ The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
 - **Deploy**: Vercel
 - **External Integration**: Starknet public RPC — `starknet_call` for total supply, `starknet_getEvents` for transfers
 - The demo sets the tone — it should show that vibecoding is fast, structured, and produces real results
-- For Specify: Use project-init skill approach to generate spec from idea
+- For Specify: Use the `project-init` skill (`/project-init` in Claude Code) to generate spec + roadmap from idea — demo installing the skill and running it live
 - For Generate: Build piece by piece — scaffold → data layer → UI → events → polish
+- For Generate (saving progress): Use the `checkpoint` skill (`/checkpoint` in Claude Code) after each generation step to review + commit changes
 - For Run: Run `npm run dev` after each generation step, show live Starknet data in browser
 - For Debug: Introduce artificial bug (hex parsing error or CORS issue), demo fixing with Claude Code
 - Pre-run strategy: git tags at each checkpoint (`demo/start`, `demo/scaffold`, `demo/data`, etc.) for smooth transitions
@@ -126,6 +129,8 @@ The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
 
 **Requirements**:
 - [ ] Build the project from scratch using Claude Code
+- [ ] Use `/project-init` to generate the initial spec + roadmap (this becomes the `demo/start` checkpoint)
+- [ ] Use `/checkpoint` after each generation step to review + commit (this creates natural git tags)
 - [ ] Create git commits at each meaningful checkpoint (after each prompt/generation cycle)
 - [ ] Document the exact prompts used at each step
 - [ ] Tag or branch each checkpoint for easy navigation during the demo
@@ -135,6 +140,7 @@ The Day 1 kickoff demo where Brandon vibeodes a project end-to-end in 45min-1hr.
 - The pre-run approach means you show the prompt, explain what it does, then `git checkout` to the result
 - This avoids dead air while waiting for Claude Code to generate
 - Practice the flow to ensure transitions are smooth
+- Show participants the `/checkpoint` workflow during the demo so they adopt it for their own builds
 
 ---
 

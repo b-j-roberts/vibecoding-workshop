@@ -75,3 +75,12 @@ export async function GET() {
   return NextResponse.json({ message: "Hello" });
 }
 ```
+
+## Workshop Skills
+
+Two skills are available for this project:
+
+- **`/project-init`** — Run this first to scope your project into a spec + roadmap
+- **`/checkpoint`** — Run this after completing each feature to review changes and commit
+
+Workflow: implement a feature → run `npm run dev` → verify it works → `/checkpoint` → next feature.

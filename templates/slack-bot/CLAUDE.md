@@ -126,3 +126,12 @@ For production, switch from Socket Mode to HTTP mode:
 2. Remove the `appToken` config
 3. Deploy to a server with a public URL (Render, Railway, etc.)
 4. Set the Request URL in your Slack app settings to `https://your-domain.com/slack/events`
+
+## Workshop Skills
+
+Two skills are available for this project:
+
+- **`/project-init`** — Run this first to scope your project into a spec + roadmap
+- **`/checkpoint`** — Run this after completing each feature to review changes and commit
+
+Workflow: implement a feature → run `npm run dev` → verify it works → `/checkpoint` → next feature.

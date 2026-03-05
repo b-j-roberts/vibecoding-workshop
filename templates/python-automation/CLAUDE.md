@@ -47,3 +47,12 @@ This is a Python CLI automation that fetches data from an API, processes it, and
 3. Call both from `main()`
 4. Add any new config keys to `config.yaml`
 5. Add any new secrets to `.env.example`
+
+## Workshop Skills
+
+Two skills are available for this project:
+
+- **`/project-init`** — Run this first to scope your project into a spec + roadmap
+- **`/checkpoint`** — Run this after completing each feature to review changes and commit
+
+Workflow: implement a feature → run `python main.py` → verify it works → `/checkpoint` → next feature.

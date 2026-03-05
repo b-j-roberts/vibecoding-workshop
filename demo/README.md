@@ -17,6 +17,8 @@
 
 **Deploy Target**: Vercel
 
+**Example Repo Template**: https://github.com/b-j-roberts/vibecoding-workshop/tree/main/templates/nextjs-app
+
 ---
 
 ## Contract Details
@@ -50,11 +52,12 @@
 
 **Demo actions**:
 - Open terminal, show the empty directory
-- Use the `project-init` skill approach: describe the project idea to Claude Code
+- Install the `project-init` skill: `npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init`
+- Run `/project-init` in Claude Code — describe the project idea and let the skill guide you through discovery questions
 - Show back-and-forth with AI agent to define spec from questions
 - Walk through the generated spec — what it chose, what it scoped out
 
-**Key takeaway**: Start with a clear, narrow spec. Let AI help you structure it, but YOU decide what's in and what's out.
+**Key takeaway**: Start with a clear, narrow spec. The `project-init` skill structures this process for you. YOU decide what's in and what's out.
 
 ---
 
@@ -65,11 +68,11 @@
 **Narrative**: "Now I have a spec and a roadmap. Let me ask Claude Code to build this piece by piece, starting with the scaffold."
 
 **Demo actions** (each is a checkpoint/commit):
-1. **Project Setup**: Use roadmap Phase 0 items
-2. **MVP**: Use roadmap Phase 1 items
-3. **Nice to have**: Use roadmap Phase 2 items
+1. **Project Setup**: Use roadmap Phase 0 items → `/checkpoint` to review + commit
+2. **MVP**: Use roadmap Phase 1 items → `/checkpoint` to review + commit
+3. **Nice to have**: Use roadmap Phase 2 items → `/checkpoint` to review + commit
 
-**Key takeaway**: One feature at a time, with a repeated prompt. Run & test after each step. Don't try to generate the whole app in one shot. Commit between each step.
+**Key takeaway**: One feature at a time, with a repeated prompt. Run & test after each step. Don't try to generate the whole app in one shot. Use `/checkpoint` after each step to review your changes and commit cleanly.
 
 ---
 
@@ -110,8 +113,8 @@ The demo uses **pre-built checkpoints** so Brandon doesn't wait for live generat
 
 | Checkpoint | Git Tag | What's Visible |
 |------------|---------|----------------|
-| 0 - Empty | `demo/empty` | Empty directory, where we run project-init |
-| 1 - Start | `demo/start` | Just the spec, roadmap, ... output from project-init |
+| 0 - Empty | `demo/empty` | Empty directory, where we install skills and run `/project-init` |
+| 1 - Start | `demo/start` | Spec, roadmap, style guide — output from `/project-init` skill |
 | 2 - Scaffold | `demo/scaffold` | Next.js app with layout and core components, result of roadmap Phase 0 |
 | 3 - MVP | `demo/mvp` | Result after all Phase 1 items |
 | 4 - Bug | `demo/bug` | Introduced bug for debugging demo |

@@ -67,7 +67,7 @@
 
 ### The Golden Rule
 
-> "**One feature per loop.** Never ask the AI to build the whole app at once. Ask for one thing, run it, verify it, then ask for the next thing. This is the single most important discipline."
+> "**One feature per loop.** Never ask the AI to build the whole app at once. Ask for one thing, run it, verify it, checkpoint it, then ask for the next thing. This is the single most important discipline."
 
 ### What to Use AI For vs. Not
 
@@ -104,11 +104,32 @@ ls -la
 
 > "Empty directory. Nothing here. This is where every project starts."
 
+### Install Workshop Skills
+
+> "Before I start, I need to install two skills that make the workflow smoother. Skills are like plugins for Claude Code — they teach it specific workflows."
+
+**Terminal action**: Install the skills.
+
+```bash
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint
+```
+
+> "`project-init` will guide me through scoping my project into a spec and roadmap. `checkpoint` will review my code and commit after each step. You'll install these same skills when you start building."
+
 ### The Specify Prompt
 
-> "First loop: Specify. I need to turn my vague idea into a concrete spec. Here's what I tell Claude Code:"
+> "First loop: Specify. I need to turn my vague idea into a concrete spec. Instead of writing a big prompt, I use the `project-init` skill — it asks me the right questions."
 
-**Show this prompt** (type it or have it ready to paste):
+**Show this command** (type it in Claude Code):
+
+```
+/project-init
+```
+
+> "Now it's going to ask me questions about my project. I describe my idea, it digs into the details, does some research, and produces a full spec and roadmap."
+
+**Describe the idea when prompted:**
 
 ```
 I want to build a real-time dashboard that tracks USDC stablecoin activity
@@ -117,12 +138,9 @@ flag large transactions as "whale alerts."
 
 Stack: Next.js with Tailwind CSS, using starknet.js for RPC calls.
 Deploy target: Vercel.
-
-Help me scope this into a clear spec with: what's in MVP, what's out,
-the data sources, and a phased roadmap.
 ```
 
-> "Notice what I'm doing here: I'm giving it the *what* and the *constraints*. Not the *how*. I'm telling it the stack because I know what I want to deploy on, but I'm letting it figure out the architecture."
+> "Notice what I'm doing: I'm giving it the *what* and the *constraints*. Not the *how*. The skill handles the scoping process — it asks clarifying questions, does research, then generates structured docs."
 
 ### Show the result
 
@@ -138,9 +156,11 @@ git checkout demo/start
 - `docs/SPEC.md` — "Here's the spec. It defined the components, the data flow, which contract we're reading from. It made decisions — polling every 30 seconds, dark theme, specific card layout."
 - `docs/ROADMAP.md` — "And here's the roadmap — broken into phases. Phase 1 is MVP, Phase 2 is nice-to-have. This is my build plan."
 
+> "The `project-init` skill produced all of this. When you scope your own MVP later, you'll use the same skill. It asks the right questions so you don't miss anything."
+
 ### Key Takeaway
 
-> "I didn't write a single line of code. I described what I wanted, and now I have a structured plan. **This is the most important step.** A clear spec prevents you from wandering. If you skip this, you'll spend twice as long going in circles."
+> "I didn't write a single line of code. I described what I wanted, and the skill guided me to a structured plan. **This is the most important step.** A clear spec prevents you from wandering. If you skip this, you'll spend twice as long going in circles."
 
 ---
 
@@ -171,8 +191,16 @@ npm run dev
 
 > "Look — it's running. There's a layout, placeholder components, the dark theme is applied. No data yet, but the structure is there. This is the skeleton."
 
+**Checkpoint action**: Save progress.
+
+```
+/checkpoint "scaffold"
+```
+
+> "See that? I just ran `/checkpoint`. It reviewed my changes, did a quick code review, and committed everything cleanly. This is how you save your progress — after every feature, checkpoint it."
+
 **Key takeaway:**
-> "I asked for the scaffold, I got the scaffold. I ran it immediately. It works. Now I move on. **Don't polish at this stage.** Get the structure right first."
+> "I asked for the scaffold, I got the scaffold. I ran it immediately. It works. I checkpointed it. Now I move on. **Don't polish at this stage.** Get the structure right first."
 
 ### Checkpoint 2: MVP — Live Data (8 min)
 
@@ -206,8 +234,14 @@ npm run dev
 - Whale alerts highlighted in yellow/orange
 - Stats bar with metrics
 
+**Checkpoint action**: Save progress.
+
+```
+/checkpoint "mvp with live data"
+```
+
 **Key takeaway:**
-> "Two prompts got us from empty directory to a working dashboard with live blockchain data. That's the power of staying focused: clear spec, one phase at a time, run after each step."
+> "Two prompts got us from empty directory to a working dashboard with live blockchain data. That's the power of staying focused: clear spec, one phase at a time, run after each step, checkpoint to save."
 
 ### Checkpoint 3: Polish (5 min)
 
@@ -345,7 +379,16 @@ npm run dev
 
 ## Transition to Scoping Clinic (2 min)
 
-> "Now it's your turn. For the next 35 minutes, you're going to scope *your* MVP. You each came with 1-2 project ideas. We're going to narrow those down to something you can build in the next two days."
+> "Now it's your turn. First, let's get your tools set up. Clone your starter template, then install the two skills we used in the demo:"
+
+```bash
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint
+```
+
+> "`project-init` will guide you through scoping your MVP — same process I just showed you. `checkpoint` will save your progress after each feature. Install them now, then we'll start scoping."
+>
+> "For the next 35 minutes, you're going to scope *your* MVP. You each came with 1-2 project ideas. We're going to narrow those down to something you can build in the next two days. Run `/project-init` and let it guide you."
 >
 > "The rules for your MVP:"
 >

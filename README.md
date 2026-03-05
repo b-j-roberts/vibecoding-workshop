@@ -53,6 +53,21 @@ Participants choose one of three paths:
 - **IDE**: VS Code / Cursor
 - **Deployment**: Vercel (web), Railway/Render (services), GitHub Actions (automation)
 
+### Workshop Skills
+
+Two custom Claude Code skills are provided for participants to install into their projects:
+
+1. **`project-init`** — Turns a project idea into a structured spec, roadmap, and style guide through guided discovery. Used during the Day 1 Scoping Clinic to define your MVP. Does NOT generate code — produces documentation that serves as your build plan.
+
+2. **`checkpoint`** — Reviews your local git changes, performs a light code review, and commits if no issues are found. Use this after completing each feature to save your progress cleanly.
+
+**Install both skills** (run from your project directory):
+
+```bash
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint
+```
+
 ## Support Structure
 
 - Brandon (instructor + AI troubleshooting)
@@ -73,6 +88,9 @@ Participants choose one of three paths:
 │   ├── nextjs-app/        # Web app template
 │   ├── python-automation/ # Python CLI automation template
 │   └── slack-bot/         # Slack webhook bot template
+├── skills/                # Claude Code skills for participants
+│   ├── project-init/      # Skill: scope an idea into spec + roadmap
+│   └── checkpoint/        # Skill: review changes + commit
 ├── prompts/               # Standard prompts & prompting guide
 └── troubleshooting/       # Troubleshooting playbook
 ```
