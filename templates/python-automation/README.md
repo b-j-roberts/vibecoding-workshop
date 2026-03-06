@@ -41,6 +41,19 @@ You should see a report printed to the terminal and saved to `report.txt`.
 └── .gitignore
 ```
 
+## Building Your Project
+
+After cloning this template, follow the vibecoding workflow loop:
+
+1. **`/project-init`** — Scope your project (creates spec + roadmap in `docs/`)
+2. **`/do-task 1.1`** — Implement the first roadmap task
+3. **Test** — Follow the test plan `/do-task` gives you (run `python main.py`, check the output)
+4. **Debug** — If something doesn't work, describe the issue to Claude (e.g., "I get a KeyError when parsing the API response" or "the report is missing the date column")
+5. **`/checkpoint`** — Review + commit your changes
+6. **Repeat** — `/do-task 1.2`, test, debug, `/checkpoint`, and so on through the roadmap
+
+See `prompts/WORKFLOW_GUIDE.md` for the full guide.
+
 ## Configuration
 
 Edit `config.yaml` to change what the automation does:

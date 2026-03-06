@@ -40,6 +40,19 @@ Open [http://localhost:3000](http://localhost:3000) to see your app.
 └── package.json
 ```
 
+## Building Your Project
+
+After cloning this template, follow the vibecoding workflow loop:
+
+1. **`/project-init`** — Scope your project (creates spec + roadmap in `docs/`)
+2. **`/do-task 1.1`** — Implement the first roadmap task
+3. **Test** — Follow the test plan `/do-task` gives you (run `npm run dev`, check the browser)
+4. **Debug** — If something doesn't work or look right, describe the issue to Claude (e.g., "the button is cut off on mobile" or "I get a 404 when I click submit")
+5. **`/checkpoint`** — Review + commit your changes
+6. **Repeat** — `/do-task 1.2`, test, debug, `/checkpoint`, and so on through the roadmap
+
+See `prompts/WORKFLOW_GUIDE.md` for the full guide.
+
 ## Adding Pages
 
 Create a new folder inside `app/` with a `page.tsx` file:

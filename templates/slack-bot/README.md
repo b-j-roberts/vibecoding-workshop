@@ -28,6 +28,19 @@ npm test
 npm run dev
 ```
 
+## Building Your Project
+
+After cloning this template and completing the Slack App Setup below, follow the vibecoding workflow loop:
+
+1. **`/project-init`** — Scope your project (creates spec + roadmap in `docs/`)
+2. **`/do-task 1.1`** — Implement the first roadmap task
+3. **Test** — Follow the test plan `/do-task` gives you (run `npm run dev`, test commands in Slack)
+4. **Debug** — If something doesn't work, describe the issue to Claude (e.g., "the bot responds but the message formatting is wrong" or "I get a 'missing_scope' error")
+5. **`/checkpoint`** — Review + commit your changes
+6. **Repeat** — `/do-task 1.2`, test, debug, `/checkpoint`, and so on through the roadmap
+
+See `prompts/WORKFLOW_GUIDE.md` for the full guide.
+
 ## Slack App Setup
 
 You need to create a Slack app to get the required tokens. This takes about 5 minutes.

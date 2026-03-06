@@ -129,9 +129,10 @@ For production, switch from Socket Mode to HTTP mode:
 
 ## Workshop Skills
 
-Two skills are available for this project:
+Three skills are available for this project:
 
 - **`/project-init`** — Run this first to scope your project into a spec + roadmap. Fill out the **Project Scoping Template** (`templates/PROJECT_SCOPING_TEMPLATE.md`) first and paste it as input.
-- **`/checkpoint`** — Run this after completing each feature to review changes and commit
+- **`/do-task X.Y`** — Implement a specific task from your roadmap (e.g., `/do-task 1.1`). Reads your spec, styles, and roadmap automatically. Provides a test plan after implementation.
+- **`/checkpoint`** — Run this after testing to review changes and commit.
 
-Workflow: fill out scoping template → `/project-init` → implement a feature → run `npm run dev` → verify it works → `/checkpoint` → next feature.
+Workflow: `/project-init` → `/do-task 1.1` → test (run `npm run dev`, test in Slack) → debug if needed → `/checkpoint` → `/do-task 1.2` → repeat.
