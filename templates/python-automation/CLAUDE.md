@@ -52,7 +52,7 @@ This is a Python CLI automation that fetches data from an API, processes it, and
 
 Two skills are available for this project:
 
-- **`/project-init`** — Run this first to scope your project into a spec + roadmap
+- **`/project-init`** — Run this first to scope your project into a spec + roadmap. Fill out the **Project Scoping Template** (`templates/PROJECT_SCOPING_TEMPLATE.md`) first and paste it as input.
 - **`/checkpoint`** — Run this after completing each feature to review changes and commit
 
-Workflow: implement a feature → run `python main.py` → verify it works → `/checkpoint` → next feature.
+Workflow: fill out scoping template → `/project-init` → implement a feature → run `python main.py` → verify it works → `/checkpoint` → next feature.

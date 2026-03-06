@@ -119,7 +119,11 @@ npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkp
 
 ### The Specify Prompt
 
-> "First loop: Specify. I need to turn my vague idea into a concrete spec. Instead of writing a big prompt, I use the `project-init` skill — it asks me the right questions."
+> "First loop: Specify. I need to turn my vague idea into a concrete spec. I start by filling out the **Project Scoping Template** — it's a simple form that captures what you're building, why, and what stack you want. Then I feed that to the `project-init` skill."
+
+**Show the scoping template** (open `templates/PROJECT_SCOPING_TEMPLATE.md` briefly):
+
+> "This is the scoping template you'll all fill out before running `/project-init`. It asks: what is your project, why does it matter, what stack, what integrations, where you'll deploy, and if there's a starter template to use. The more detail you put in here, the better the AI understands your vision."
 
 **Show this command** (type it in Claude Code):
 
@@ -127,20 +131,30 @@ npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkp
 /project-init
 ```
 
-> "Now it's going to ask me questions about my project. I describe my idea, it digs into the details, does some research, and produces a full spec and roadmap."
+> "Now I run `/project-init` and paste in my filled-out scoping template. It takes my answers, digs into the details, does some research, interviews me to figure out what I am looking to make, and produces a full spec and roadmap."
 
-**Describe the idea when prompted:**
+**Paste the filled-out scoping template when prompted:**
 
 ```
-I want to build a real-time dashboard that tracks USDC stablecoin activity
-on Starknet mainnet. It should show total supply, recent transfers, and
-flag large transactions as "whale alerts."
+**What**: A real-time dashboard tracking USDC stablecoin activity on Starknet — total supply, recent transfers, and large transaction alerts ("whale watch").
 
-Stack: Next.js with Tailwind CSS, using starknet.js for RPC calls.
-Deploy target: Vercel.
+**Why this project**:
+- **PM-relevant**: Dashboards are a core PM artifact. Tracking on-chain metrics is directly relevant to StarkWare PMs
+- **Universally understood**: Everyone knows what USDC is — no domain expertise needed to follow along
+- **Visually impressive**: Clean cards, live data, transfer feed creates an immediate "wow" moment
+- **Right complexity**: Simple enough to build in 45min-1hr demo, complex enough to feel real
+- **Real data**: Pulls live Starknet mainnet data — not mock data, not a toy
+
+**Stack**: Next.js (App Router) + Tailwind CSS + Starknet JSON-RPC
+
+**External Integration**: Starknet public RPC node (JSON-RPC calls to read USDC contract state and events)
+
+**Deploy Target**: Vercel
+
+**Example Repo Template**: https://github.com/b-j-roberts/vibecoding-workshop/tree/main/templates/nextjs-app
 ```
 
-> "Notice what I'm doing: I'm giving it the *what* and the *constraints*. Not the *how*. The skill handles the scoping process — it asks clarifying questions, does research, then generates structured docs."
+> "Notice what I'm doing: I filled out the scoping template with the *what* and the *constraints*. Not the *how*. The skill takes that input and handles the scoping process — it asks clarifying questions, does research, then generates structured docs."
 
 ### Show the result
 
@@ -388,7 +402,9 @@ npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkp
 
 > "`project-init` will guide you through scoping your MVP — same process I just showed you. `checkpoint` will save your progress after each feature. Install them now, then we'll start scoping."
 >
-> "For the next 35 minutes, you're going to scope *your* MVP. You each came with 1-2 project ideas. We're going to narrow those down to something you can build in the next two days. Run `/project-init` and let it guide you."
+> "Before you run `/project-init`, fill out the **Project Scoping Template** — you'll find it at `templates/PROJECT_SCOPING_TEMPLATE.md`. It's the same form I used in the demo. Write your answers, then paste the whole thing into `/project-init` when it asks for your project description."
+>
+> "For the next 35 minutes, you're going to scope *your* MVP. You each came with 1-2 project ideas. We're going to narrow those down to something you can build in the next two days. Fill out the scoping template, then run `/project-init` and feed it your answers."
 >
 > "The rules for your MVP:"
 >

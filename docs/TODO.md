@@ -70,7 +70,23 @@ Tasks to align with stakeholders and get organizational pieces in place.
 
 ---
 
-### 1.4 Confirm Participant Prerequisites
+### 1.4 Confirm Participant Project Choices
+
+**Description**: Before the workshop, confirm what each participant plans to build so you can prepare the right templates and identify any special needs (e.g., Slack bot setup requires extra lead time).
+
+**Requirements**:
+- [ ] Collect each participant's chosen project idea and preferred template (Next.js, Python, Slack bot)
+- [ ] Identify if anyone plans to build a Slack bot — if so, test the Slack bot template end-to-end before the workshop (see 3.3)
+- [ ] Flag any projects that seem too ambitious or too vague and follow up individually
+- [ ] Share the finalized list with tutors so they can prepare
+
+**Notes**:
+- This should happen after participant prerequisites are confirmed but before the workshop starts
+- If no one wants to build a Slack bot, you can deprioritize testing that template
+
+---
+
+### 1.5 Confirm Participant Prerequisites
 
 **Description**: Ensure all participants complete the mandatory checklist before Day 1 to avoid wasting workshop time on setup.
 
@@ -225,6 +241,23 @@ Three minimal, runnable templates participants choose from on Day 1.
 
 ---
 
+### 3.4 Test Slack Bot Template End-to-End (Conditional)
+
+**Description**: If any participant confirms they want to build a Slack bot (see 1.4), test the Slack bot template end-to-end to ensure it works smoothly. Skip this if no one picks the Slack template.
+
+**Requirements**:
+- [ ] Create a test Slack app in a sandbox workspace
+- [ ] Run through the full template setup following only the README instructions
+- [ ] Verify the example handler works (receive event → process → respond)
+- [ ] Note any setup friction or confusing steps and fix the README
+- [ ] Confirm deployment path works (e.g., can receive webhooks from a public URL)
+
+**Notes**:
+- Only do this if confirmed via task 1.4 — Slack setup is the most involved template and not worth testing if no one needs it
+- If someone does want a Slack bot, testing this early gives time to fix issues
+
+---
+
 ## Phase 4: Workshop Materials
 
 Supporting documents, prompts, and guides for the workshop.
@@ -268,20 +301,24 @@ Supporting documents, prompts, and guides for the workshop.
 
 ### 4.3 MVP Scoping Template
 
-**Description**: A one-page template participants fill out during the Day 1 Scoping Clinic to define their MVP.
+**Description**: A one-page template participants fill out during the Day 1 Scoping Clinic to define their MVP. This is the input they provide to `/project-init`.
 
 **Requirements**:
-- [ ] Problem statement (1 paragraph)
-- [ ] Non-goals (at least 3)
-- [ ] Inputs / Outputs
-- [ ] Happy path flow
-- [ ] Acceptance criteria (3-5 bullets)
-- [ ] Template format (markdown file or shared doc)
+- [x] What (project description, features, differentiators)
+- [x] Why (goals, audience, purpose)
+- [x] Stack (or "unsure" if they don't know)
+- [x] External integrations
+- [x] Deploy target
+- [x] Example repo template (links to the 3 starter templates)
+- [x] Completed example included (Starknet USDC Dashboard)
+- [x] Template format (markdown file)
+
+**Done**: `templates/PROJECT_SCOPING_TEMPLATE.md` — referenced in the demo script (Section 3 + Transition to Scoping Clinic) and in each starter template's CLAUDE.md.
 
 **Notes**:
 - This is used during the "MVP Scoping Clinic (35 min)" on Day 1
+- Participants fill this out, then paste it into `/project-init` as input
 - Brandon should review and push back on scope during this session
-- Consider including 2-3 filled-out examples to show what "good" looks like
 
 ---
 

@@ -80,7 +80,7 @@ export async function GET() {
 
 Two skills are available for this project:
 
-- **`/project-init`** — Run this first to scope your project into a spec + roadmap
+- **`/project-init`** — Run this first to scope your project into a spec + roadmap. Fill out the **Project Scoping Template** (`templates/PROJECT_SCOPING_TEMPLATE.md`) first and paste it as input.
 - **`/checkpoint`** — Run this after completing each feature to review changes and commit
 
-Workflow: implement a feature → run `npm run dev` → verify it works → `/checkpoint` → next feature.
+Workflow: fill out scoping template → `/project-init` → implement a feature → run `npm run dev` → verify it works → `/checkpoint` → next feature.
