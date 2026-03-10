@@ -1,6 +1,6 @@
 # Day 1 Live Demo Script
 
-**Presenter**: Brandon Roberts
+**Presenter**: Workshop instructor
 **Duration**: 50 minutes (target)
 **Format**: Screen share — terminal + browser side-by-side
 **Project**: Starknet USDC Dashboard (live-demo/)
@@ -15,7 +15,7 @@
 - [ ] Git repo at `demo/empty` tag: `git checkout demo/empty`
 - [ ] `node_modules` pre-installed in live-demo/ (so `npm run dev` is instant after checkout)
 - [ ] Vercel deployment ready to show at the end
-- [ ] Slack `#pm-vibecoding-workshop` open for questions
+- [ ] Workshop Slack channel open for questions
 
 ---
 
@@ -106,16 +106,18 @@ ls -la
 
 ### Install Workshop Skills
 
-> "Before I start, I need to install two skills that make the workflow smoother. Skills are like plugins for Claude Code — they teach it specific workflows."
+> "Before I start, I need to install four skills that make the workflow smoother. Skills are like plugins for Claude Code — they teach it specific workflows."
 
 **Terminal action**: Install the skills.
 
 ```bash
 npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill do-task
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill scope-task
 npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint
 ```
 
-> "`project-init` will guide me through scoping my project into a spec and roadmap. `checkpoint` will review my code and commit after each step. You'll install these same skills when you start building."
+> "`project-init` will guide me through scoping my project into a spec and roadmap. `do-task` implements tasks from the roadmap one at a time. `scope-task` lets me add new tasks to the roadmap when I discover gaps. `checkpoint` will review my code and commit after each step. You'll install these same skills when you start building."
 
 ### The Specify Prompt
 
@@ -344,20 +346,20 @@ npm run dev
 
 1. **Strike 1**: Describe the error to Claude Code with full context. This fixes ~80% of issues.
 2. **Strike 2**: If Claude's fix doesn't work, give it the new error message. Say "That didn't work, here's what happened instead: [new error]." This fixes ~15% more.
-3. **Strike 3**: If you're still stuck after two rounds, **stop and ask for help.** Post in `#pm-vibecoding-workshop` or flag a tutor. Don't spend 30 minutes going in circles.
+3. **Strike 3**: If you're still stuck after two rounds, **stop and ask for help.** Post in the workshop Slack channel or flag a tutor. Don't spend 30 minutes going in circles.
 
 ### Who Helps With What
 
 | Problem | Who to Ask |
 |---------|-----------|
-| AI gives wrong code / prompt not working | Brandon |
+| AI gives wrong code / prompt not working | Instructor |
 | Git issues, repo problems | Tutor |
 | App won't start, missing dependencies | Tutor |
 | API errors, deployment issues | Tutor |
-| "I don't know what to build next" | Brandon |
+| "I don't know what to build next" | Instructor |
 | Everything else | Post in Slack, someone will jump in |
 
-> "The tutors — Boaz, Ohad, and Oded — are here for the non-AI stuff. Git, environment, APIs. I'm here for the AI and prompting questions. Use us. That's what we're here for."
+> "The tutors are here for the non-AI stuff. Git, environment, APIs. I'm here for the AI and prompting questions. Use us. That's what we're here for."
 
 ---
 
@@ -393,14 +395,16 @@ npm run dev
 
 ## Transition to Scoping Clinic (2 min)
 
-> "Now it's your turn. First, let's get your tools set up. Clone your starter template, then install the two skills we used in the demo:"
+> "Now it's your turn. First, let's get your tools set up. Clone your starter template, then install the four skills we used in the demo:"
 
 ```bash
 npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill do-task
+npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill scope-task
 npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint
 ```
 
-> "`project-init` will guide you through scoping your MVP — same process I just showed you. `checkpoint` will save your progress after each feature. Install them now, then we'll start scoping."
+> "`project-init` will guide you through scoping your MVP — same process I just showed you. `do-task` implements tasks from your roadmap. `scope-task` lets you add new tasks when you find gaps. `checkpoint` will save your progress after each feature. Install them now, then we'll start scoping."
 >
 > "Before you run `/project-init`, fill out the **Project Scoping Template** — you'll find it at `templates/PROJECT_SCOPING_TEMPLATE.md`. It's the same form I used in the demo. Write your answers, then paste the whole thing into `/project-init` when it asks for your project description."
 >

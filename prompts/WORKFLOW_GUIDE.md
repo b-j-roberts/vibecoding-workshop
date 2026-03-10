@@ -83,6 +83,14 @@ Once everything checks out, run `/checkpoint`. This does a light code review and
 
 Move to the next task: `/do-task 1.2`, then `/do-task 1.3`, etc.
 
+If you realize something is missing from your roadmap, use `/scope-task` to research and add it:
+
+```
+/scope-task 2.5 Add search filtering
+```
+
+This scopes the new task (researches best practices, asks you clarifying questions) and inserts it into your roadmap. Then implement it with `/do-task 2.5`.
+
 ---
 
 ## Prompting Tips
@@ -155,4 +163,5 @@ What tasks have I completed so far and what's next on the roadmap?
 | Fix a bug or visual issue | Describe the problem to Claude |
 | Save your progress | `/checkpoint` |
 | See available tasks | Ask Claude: "What tasks are in my roadmap?" |
+| Add a missing task to the roadmap | `/scope-task 2.5 Add search filtering` (replace with ID + title) |
 | Change the plan | Ask Claude to update `docs/ROADMAP.md` |

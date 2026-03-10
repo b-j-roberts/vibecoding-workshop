@@ -6,12 +6,12 @@ Quick fixes for common issues during the workshop. Find your symptom, apply the 
 
 ## Table of Contents
 
-- [Workshop Skills (`/do-task`, `/project-init`, `/checkpoint`)](#workshop-skills)
+- [Workshop Skills (`/project-init`, `/do-task`, `/scope-task`, `/checkpoint`)](#workshop-skills)
 - [Environment & Setup](#environment--setup)
 - [Git Issues](#git-issues)
 - [Deployment (Vercel)](#deployment-vercel)
 - [API & Integration Issues](#api--integration-issues)
-- [When to Escalate to Brandon](#when-to-escalate-to-brandon)
+- [When to Escalate to the Instructor](#when-to-escalate-to-the-instructor)
 
 ---
 
@@ -226,7 +226,7 @@ git push
 
 ---
 
-## When to Escalate to Brandon
+## When to Escalate to the Instructor
 
 Escalate if:
 - Claude Code itself is broken or unresponsive

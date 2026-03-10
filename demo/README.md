@@ -46,13 +46,13 @@
 
 ### Loop 1: Specify
 
-**What Brandon does**: Shows how to scope a project from a vague idea to a concrete spec.
+**What the instructor does**: Shows how to scope a project from a vague idea to a concrete spec.
 
 **Narrative**: "I want a dashboard that shows USDC activity on Starknet. Let me use Claude Code to help me turn this idea into a real project spec."
 
 **Demo actions**:
 - Open terminal, show the empty directory
-- Install the `project-init` skill: `npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init`
+- Install workshop skills: `npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill project-init && npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill do-task && npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill scope-task && npx skills add https://github.com/b-j-roberts/vibecoding-workshop --skill checkpoint`
 - Run `/project-init` in Claude Code — describe the project idea and let the skill guide you through discovery questions
 - Show back-and-forth with AI agent to define spec from questions
 - Walk through the generated spec — what it chose, what it scoped out
@@ -63,7 +63,7 @@
 
 ### Loop 2: Generate
 
-**What Brandon does**: Shows how to go from spec to working code, one piece at a time.
+**What the instructor does**: Shows how to go from spec to working code, one piece at a time.
 
 **Narrative**: "Now I have a spec and a roadmap. Let me ask Claude Code to build this piece by piece, starting with the scaffold."
 
@@ -78,7 +78,7 @@
 
 ### Loop 3: Run
 
-**What Brandon does**: Runs the app after each generation step, shows the result, points out what works and what might need fixing.
+**What the instructor does**: Runs the app after each generation step, shows the result, points out what works and what might need fixing.
 
 **Narrative**: "Every time Claude generates code, I run it immediately. I don't wait until the end to see if it works."
 
@@ -93,13 +93,13 @@
 
 ### Loop 4: Debug
 
-**What Brandon does**: Encounters (or introduces) an error and shows how to debug with Claude Code.
+**What the instructor does**: Encounters (or introduces) an error and shows how to debug with Claude Code.
 
 **Narrative**: "Something broke. This is normal — it happens. Here's how you handle it."
 
 **Planned debug scenario** (introduce artificially if no natural error occurs):
 - **Error**: RPC call returns unexpected data format (e.g., hex-encoded uint256 not parsing correctly)
-- **What Brandon shows**: Copy the error message, paste it to Claude Code with context ("I'm getting this error: [error].")
+- **What the instructor shows**: Copy the error message, paste it to Claude Code with context ("I'm getting this error: [error].")
 - **Resolution**: Claude suggests parsing the hex response correctly
 - **Alternative error**: CORS issue when calling RPC from browser (fix: move to API route)
 
@@ -109,7 +109,7 @@
 
 ## Pre-Run Strategy
 
-The demo uses **pre-built checkpoints** so Brandon doesn't wait for live generation:
+The demo uses **pre-built checkpoints** so the instructor doesn't wait for live generation:
 
 | Checkpoint | Git Tag | What's Visible |
 |------------|---------|----------------|
@@ -127,7 +127,7 @@ The demo uses **pre-built checkpoints** so Brandon doesn't wait for live generat
 
 ## Artificial Debug Error
 
-To ensure the "Debug" loop has a clear example, Brandon will:
+To ensure the "Debug" loop has a clear example, the instructor will:
 
 1. At checkpoint 4, checkout a version with a **known bug** (e.g., `demo/bug`)
 2. The bug: incorrect hex parsing of the `totalSupply` response, showing a wrong number or crashing
