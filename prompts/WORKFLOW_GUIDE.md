@@ -25,7 +25,7 @@ Work through tasks in order: 1.1, 1.2, 1.3, then 2.1, 2.2, etc.
 
 ### 1. Scope Your Project (`/project-init`)
 
-Fill out the **Project Scoping Template** (`templates/PROJECT_SCOPING_TEMPLATE.md`) first, then paste it as input when `/project-init` asks.
+Fill out the **Project Scoping Template** ([templates/PROJECT_SCOPING_TEMPLATE.md](https://github.com/b-j-roberts/vibecoding-workshop/blob/main/templates/PROJECT_SCOPING_TEMPLATE.md)) first, then paste it as input when `/project-init` asks.
 
 This creates three files in `docs/`:
 - **SPEC.md** — What you're building, tech stack, architecture
@@ -77,7 +77,10 @@ You can go back and forth as many times as needed — this is normal. Debugging 
 
 ### 5. Commit (`/checkpoint`)
 
-Once everything checks out, run `/checkpoint`. This does a light code review and commits your changes with a meaningful message.
+Once everything checks out, do the following:
+1. Run `/clear` to clear Claude's context window. This will make claude forget everything you were working on, but will give it a fresh perspective. ( if needed, you can always `/resume` to get your context window back so claude will remember your work ).
+2. Run `/checkpoint`. This does a light code review of the work you and claude did and commits your changes with a meaningful message if everything looks good.
+3. Run `/clear` again before starting the next task in (6)
 
 ### 6. Next Task
 
@@ -137,6 +140,8 @@ If you're not sure what to do next, try:
 ```
 What tasks have I completed so far and what's next on the roadmap?
 ```
+
+If you're still unsure, please reach out in the slack channel. I will be happy to help.
 
 ---
 
