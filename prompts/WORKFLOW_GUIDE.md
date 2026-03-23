@@ -25,7 +25,10 @@ Work through tasks in order: 1.1, 1.2, 1.3, then 2.1, 2.2, etc.
 
 ### 1. Scope Your Project (`/project-init`)
 
-Fill out the **Project Scoping Template** ([templates/PROJECT_SCOPING_TEMPLATE.md](https://github.com/b-j-roberts/vibecoding-workshop/blob/main/templates/PROJECT_SCOPING_TEMPLATE.md)) first, then paste it as input when `/project-init` asks.
+This is arguably the MOST important step. Everything you do here will affect what happens later on. If you feel like it's taking too much time, do not worry. Time spent here will actually save you time later on.
+
+First fill out the **Project Scoping Template** ([templates/PROJECT_SCOPING_TEMPLATE.md](https://github.com/b-j-roberts/vibecoding-workshop/blob/main/templates/PROJECT_SCOPING_TEMPLATE.md)).
+Then run `/project-init` in the Claude Code session and paste it as input when `/project-init` asks.
 
 This creates three files in `docs/`:
 - **SPEC.md** — What you're building, tech stack, architecture
